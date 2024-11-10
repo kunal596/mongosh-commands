@@ -1,0 +1,117 @@
+Manual for mongodb and mongosh installation and usage
+1.  go to website and install a mongodb cummunity edition
+2.  go to website and download mongosh for windows "MSI" do not download with zip
+3.  check a mongosh install by opening cmd and type mongosh u get the interface
+
+*** open a terminal and type mongosh command to access the shell ****
+1. mongosh
+
+//create database
+
+//use {database_name}
+
+2. use America elections
+
+// type 3 cmd to check db is created or not
+
+3.show dbs
+
+//create a collection inside a created database
+
+4.  db.createCollection("students")
+
+//insert data inside a created collection
+
+5.  db.students.insertOne({name:"xyz", age:42, class:10, marks:55.0}) //for one attribute
+
+// for delete database use below command
+
+6. db.drop.students() // created collection will be delete
+ 
+// *** insert ****
+
+7. db.collectionName.insertMany([{},{},{}]) 
+
+//   each curly braces conatins the information of name and xyz
+
+  
+*** find the data you have inserted ***
+
+8. db.collectionName.find()
+
+// it shows insertes data in a collection
+
+9. db.collectionName.find({name:"xyz"})-->for specific search
+
+
+
+*** find the data you have inserted and sorted***
+
+10. db.collectionName.find().sort({age:1})--ascending order
+
+11. db.collectionName.find().sort({age:-1})--descending order
+
+
+
+*** update ****
+
+12. db.collectionName.updateOne({},{$set:{fulltime:true}})
+
+13. db.collectionName.updateMany({},{$set:{fulltime:true}})
+
+
+*** comparison operator ***
+
+$ne --> not equal
+
+$lt-->less than
+
+$gt-->greater than
+
+$gte-->greater than equal to
+
+$lte-->less than equal to
+
+//find the thing by using this comparisional operators
+
+14. db.collectionName.find({name:{$ne:"name"}})
+
+15. db.collectionName.find({age:{$ne:40}})
+
+**** logical operator *****
+
+$and    --> db.collectionName.find({$and:[{age:{$lt:50}},{age{$gt:20}}]})
+
+$or     -->db.collectionName.find({$or:[{age:{$lt:50}},{age{$gt:20}}]})
+
+$nor    -->db.collectionName.find({$nor:[{age:{$lt:50}},{age{$gt:20}}]})
+
+$not    -->db.collectionName.find({$not:{age:{$lt:50}}})
+
+
+
+
+*** delete a collection ***
+
+16. db.collectionName.drop()
+
+
+
+
+****** indexes of data *****
+
+17. db.collectionName.getIndexes()
+
+18. db.students.createIndex({name:1})
+
+
+
+**** DELETING A database ********
+
+19. db.dropDatabase("database_name")
+
+
+
+*** delete a collection ****
+
+db.collectionName.drop()
